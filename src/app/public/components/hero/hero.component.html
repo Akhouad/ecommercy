@@ -1,0 +1,11 @@
+<div class="hero">
+    <div class="container">
+		<div class="banner-info">
+			<h3>Le plaisir de trouver tout ce que vous aimez dans une seule boutique.</h3>	
+			<div class="search-form">
+					<input type="text" placeholder="Search..." [(ngModel)]="keyword">
+					<a [routerLink]="'/search/' + keyword" style="float:right;width: 40px;height: 41px;outline: none;border: 1px solid #fff;background: url(/assets/images/can.png) no-repeat 6px 7px #FCCD1E;display: inline-block;"></a>
+			</div>		
+		</div>	
+    </div>
+</div>

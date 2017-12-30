@@ -1,0 +1,82 @@
+<main>	
+	<div class="loader" *ngIf="showLoader">
+	</div>
+	<div class="row">
+		<div class="col">
+			<h5 class="blue-text">Ajouter un produit</h5>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s6">
+			<div class="row">
+		        <div class="input-field col s12">
+		          <input type="text" [(ngModel)]="title">
+		          <label for="first_name">Titre</label>
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="input-field col s12">
+		          <input type="text" [(ngModel)]="price">
+		          <label for="password">Prix</label>
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="input-field col s12">
+		          <input type="text" [(ngModel)]="oldprice">
+		          <label for="email">Ancien Prix</label>
+		        </div>
+		    </div>
+		</div>
+		<div class="col s6">
+		    <div class="row">
+		        <div class="input-field col s12">
+		          <textarea class="materialize-textarea" [(ngModel)]="description">
+		          </textarea>
+		          <label for="email">Description</label>
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="input-field col s12">
+		            <select id="category">
+		            	<option selected disabled>Choisir une categorie</option>
+						<option *ngFor="let c of categories" [value]="c.ID">
+							{{c.TITLE}}
+						</option>
+					</select>
+		          <label for="category">Categories</label>
+		        </div>
+		    </div>
+		    <div class="row">
+		        <div class="input-field col s12">
+		            <select id="marque">
+		            	<option selected disabled>Choisir une marque</option>
+						<option *ngFor="let m of marques" [value]="m.ID">
+							{{m.TITLE}}
+						</option>
+					</select>
+		          <label for="marque">Marques</label>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<a class="waves-effect waves-light btn" (click)="add()">Ajouter</a>
+		</div>
+	</div>
+</main>
+
+<div id="addimagemodal" class="modal">
+    <div class="modal-content">
+    	<h5 class="blue-text">Ajouter une image</h5>
+      	<div class="file-field input-field">
+		      <div class="btn" onclick="javascript:void(0)">
+		        <span>Image</span>
+		        <input type="file" class="file-image" (change)="selectChanged($event)">
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path" placeholder="Inserez l'image" type="text" [(ngModel)]="image">
+		      </div>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="banner-top">
+  <div class="container">
+    <h3 >Mon Panier</h3>
+    <h4><a routerLink="/">Accueil</a><label>/</label>Panier</h4>
+    <div class="clearfix"> </div>
+  </div>
+</div>
+  
+
+<div class="check-out">	 
+  <div class="container">	 
+    <div class="spec ">
+      <h3>Mes Produits</h3>
+      <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+      </div>
+    </div>	
+    <table class="table ">
+      <tr>
+        <th class="t-head head-it ">Products</th>
+        <th class="t-head">Price</th>
+        <th class="t-head">Quantity</th>
+        <th class="t-head">Sous Total</th>
+      </tr>
+      <tr class="cross" *ngFor="let p of cart; let i = index">
+        <td class="ring-in t-data">
+          <a [routerLink]="replaceLineBreak('/product/' + p.title + '/' + i)" class="at-in">
+            <img [src]="p.image" class="img-responsive" alt="" width="80">
+          </a>
+          <div class="sed">
+            <h5>{{p.title}}</h5>
+          </div>
+          <div class="clearfix"> </div>
+          <div class="close1" (click)="removeItem(i)"> <i class="fa fa-times" aria-hidden="true"></i></div>
+        </td>
+        <td class="t-data">${{p.price}}</td>
+        <td class="t-data"><div class="quantity"> 
+          <div class="quantity-select">            
+            <div class="entry value-minus" (click)="minus(i)">&nbsp;</div>
+            <div class="entry value"><span class="span-1">{{p.quantity}}</span></div>									
+            <div class="entry value-plus active" (click)="plus(i)">&nbsp;</div>
+          </div>
+          </div>
+        </td>
+        <td class="t-data">${{p.price * p.quantity | number:'1.2-2'}}</td>
+      </tr>
+    </table>
+
+    <div style="float:right">
+        <h5>Total: </h5>
+        <h2>${{total | number:'1.2-2'}}</h2>
+    </div>
+    <a href="" [class]="'btn btn-success btn-lg ' + active" (click)="pay($event)">{{button}}</a>
+  </div>
+</div>
+  

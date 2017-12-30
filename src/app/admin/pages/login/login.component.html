@@ -1,0 +1,17 @@
+<div class="container form-login">
+  <div class="row">
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <input id="user" type="text" class="validate" [(ngModel)]="username">
+        <label for="user">Nom d'utilisateur</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3">
+        <input id="password" type="password" class="validate" [(ngModel)]="password">
+        <label for="password">Mot de passe</label>
+      </div>
+    </div>
+    <button class="waves-effect waves-light btn" (click)="login($event)">Se connecter</button>          
+  </div>
+</div>

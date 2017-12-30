@@ -1,0 +1,66 @@
+<app-hero></app-hero>
+
+<div class="product">
+  <div class="container">
+    <div class="spec ">
+      <h3>Derniers Produits</h3>
+      <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+      </div>
+    </div>
+
+    <div class="loader" *ngIf="!products">
+        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+          <path fill="#FAB005" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+            <animateTransform 
+              attributeName="transform" 
+              attributeType="XML" 
+              type="rotate"
+              dur="1s" 
+              from="0 50 50"
+              to="360 50 50" 
+              repeatCount="indefinite" />
+          </path>
+        </svg>
+    </div>
+
+      <div class=" con-w3l">
+        <div class="col-md-3 pro-1" *ngFor="let p of products;let i = index">
+          <div class="col-m">
+          <a href="#" data-toggle="modal" data-target="#myModal{{i}}" class="offer-img">
+              <img [src]="'http://localhost/ecommercy/server/uploads/' + p.PATH" class="img-responsive" alt="">
+            </a>
+            <div class="mid-1">
+              <div class="women">
+                <h6><a [routerLink]="replaceLineBreak('/product/' + p.TITLE + '/' + p.ID)">{{p.TITLE}} </a></h6>							
+              </div>
+              <div class="mid-2">
+                <p ><label>${{p.OLDPRICE | number:'1.2-2'}}</label><em class="item_price">${{p.PRICE | number:'1.2-2'}}</em></p>
+                  <div class="block">
+                  <div class="starbox small ghosting"> </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+                <div class="add add-2">
+                  <button 
+                    class="btn btn-danger my-cart-btn my-cart-b" 
+                    (click)="addToCart($event)" 
+                    [attr.data-id]="p.ID" 
+                    [attr.data-name]="p.TITLE" 
+                    data-summary="summary 1" 
+                    [attr.data-price]="p.PRICE" 
+                    data-quantity="1" 
+                    [attr.data-image]="'http://localhost/ecommercy/server/uploads/' + p.PATH">
+                    Add to Cart
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+  </div>
+</div>

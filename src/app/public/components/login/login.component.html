@@ -1,0 +1,33 @@
+<div class="banner-top">
+    <div class="container">
+      <h3 >Se Connecter</h3>
+      <h4><a routeLink="/">Accueil</a><label>/</label>Se connecter</h4>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <!--login-->
+  
+    <div class="login">
+    
+      <div class="main-agileits">
+          <div class="form-w3agile">
+            <h3>Se connecter</h3>
+              <div class="key">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <input  type="text" placeholder="username" [(ngModel)]="username" >
+                <div class="clearfix"></div>
+              </div>
+              <div class="key">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input  type="password" placeholder="username" [(ngModel)]="password" >
+                <div class="clearfix"></div>
+              </div>
+              <input type="submit" value="Login" (click)="login()">
+          </div>
+          <div class="forg">
+            <a routerLink="/register" class="forg-right">S'inscrire</a>
+          <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+  
